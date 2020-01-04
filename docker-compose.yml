@@ -13,7 +13,7 @@ services:
       - ./docker/mysql/data:/var/lib/mysql
   nginx:
     build:
-      context: .
+      context: ./docker/nginx
       dockerfile: ./docker/nginx/Dockerfile
       target: dev
       args:
@@ -26,7 +26,7 @@ services:
       - ./assets:/app/public
   php-fpm:
     build:
-      context: .
+      context: ./docker/php-fpm
       dockerfile: ./docker/php-fpm/Dockerfile
       target: dev
       args:
