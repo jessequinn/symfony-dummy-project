@@ -1,2 +1,17 @@
-#!/bin/sh
-docker build --target dev --build-arg VERSION=$VERSION -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+#!/bin/bash
+# hooks/build
+# https://docs.docker.com/docker-cloud/builds/advanced/
+
+set -e
+echo "IMAGE_NAME: $IMAGE_NAME"
+echo "DOCKER_REPO: $DOCKER_REPO"
+echo "DOCKERFILE_PATH: $DOCKERFILE_PATH"
+set -ex
+
+# $IMAGE_NAME var is injected into the build so the tag is correct.
+echo "[***] Build hook running"
+
+docker build \
+    --target dev \
+    --build-arg VERSION=$VERSION \
+    -t $IMAGE_NAME .
