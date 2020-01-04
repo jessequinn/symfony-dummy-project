@@ -22,7 +22,7 @@ mysql:
 
 nginx:
   name: "nginx"
-  image: "babenkoivan/symfony-dummy-project-nginx"
+  image: "damasu/symfony-dummy-project-nginx"
   port: 80
   probes:
     liveness: /healthz
@@ -30,7 +30,7 @@ nginx:
 
 phpfpm:
   name: "php-fpm"
-  image: "babenkoivan/symfony-dummy-project-php-fpm"
+  image: "damasu/symfony-dummy-project-php-fpm"
   port: 9000
   env:
     secret:
