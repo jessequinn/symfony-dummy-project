@@ -1,7 +1,8 @@
+# minikube start --cpus 4 --memory 8192
 resources:
   limits:
-    cpu: 2
-    memory: 1024Mi
+    cpu: 4
+    memory: 8192Mi
   requests:
     cpu: 0.25
     memory: 256Mi

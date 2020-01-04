@@ -3,6 +3,7 @@
 namespace App\Tests\Integration\Controller;
 
 use App\Entity\Product;
+use App\Repository\ProductRepository;
 use App\Tests\Support\CsrfTokenManager;
 use App\Tests\Support\Database;
 use App\Tests\Support\HttpClient;
@@ -21,6 +22,7 @@ final class ProductControllerTest extends TestCase
         $price = rand(1, 1000);
 
         $httpClient = $this->createClient();
+        /** @var ProductRepository $repository */
         $repository = $this->entityManager->getRepository(Product::class);
 
         $httpClient->request(Request::METHOD_POST, $this->generateUrl('product_add'), [
@@ -33,6 +35,7 @@ final class ProductControllerTest extends TestCase
         ]);
 
         $response = $httpClient->getResponse();
+        /** @var Product $product */
         $product = $repository->findOneByName($name);
 
         $this->assertEquals($price, $product->getPrice());

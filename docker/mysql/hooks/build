@@ -1,0 +1,2 @@
+#!/bin/sh
+docker build --build-arg VERSION=$VERSION -t $IMAGE_NAME .
