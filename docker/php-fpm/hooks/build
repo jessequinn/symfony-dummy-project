@@ -14,4 +14,4 @@ echo "[***] Build hook running"
 docker build \
     --target dev \
     --build-arg VERSION=$VERSION \
-    -t $IMAGE_NAME -f $DOCKERFILE_PATH $DOCKER_REPO
+    -t $IMAGE_NAME $DOCKER_REPO
