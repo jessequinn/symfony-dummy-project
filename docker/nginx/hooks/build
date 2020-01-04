@@ -14,4 +14,4 @@ echo "[***] Build hook running"
 docker build \
     --target dev \
     --build-arg VERSION=$VERSION \
-    -t $IMAGE_NAME -f /docker/nginx/Dockerfile /
+    -t $IMAGE_NAME -f $DOCKERFILE_PATH /
