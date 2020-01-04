@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build --target prod --build-arg VERSION=$VERSION -t $IMAGE_NAME .
+docker build --target prod --build-arg VERSION=$VERSION -f $DOCKERFILE_PATH -t $IMAGE_NAME .
