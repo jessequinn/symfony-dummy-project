@@ -9,7 +9,7 @@ resources:
 
 mysql:
   name: "mysql"
-  image: "babenkoivan/symfony-dummy-project-mysql"
+  image: "damasu/symfony-dummy-project-mysql"
   port: 3306
   env:
     secret:
