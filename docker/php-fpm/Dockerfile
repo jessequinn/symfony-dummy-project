@@ -31,7 +31,7 @@ FROM dev AS test
 WORKDIR /app
 
 ## Copy project files to workdir
-COPY . .
+COPY ../../ .
 
 ## Install application dependencies
 RUN composer install --no-interaction --optimize-autoloader
