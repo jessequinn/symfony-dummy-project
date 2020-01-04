@@ -3,9 +3,10 @@ version: '3.7'
 services:
   mysql:
     build:
+      context: ./docker/mysql
+      target: prod
       args:
         VERSION: $MYSQL_VERSION
-      context: ./docker/mysql
     environment:
       MYSQL_DATABASE: $MYSQL_DATABASE
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
@@ -14,7 +15,7 @@ services:
   nginx:
     build:
       context: ./docker/nginx
-      dockerfile: ./docker/nginx/Dockerfile
+      dockerfile: ./Dockerfile
       target: dev
       args:
         VERSION: $NGINX_VERSION
@@ -27,7 +28,7 @@ services:
   php-fpm:
     build:
       context: ./docker/php-fpm
-      dockerfile: ./docker/php-fpm/Dockerfile
+      dockerfile: ./Dockerfile
       target: dev
       args:
         VERSION: $PHP_VERSION
