@@ -3,7 +3,8 @@ version: '3.7'
 services:
   mysql:
     build:
-      context: ./docker/mysql
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
       target: prod
       args:
         VERSION: $MYSQL_VERSION
