@@ -21,11 +21,11 @@ build:
 	@docker tag ${IMG_MYSQL} ${LATEST_MYSQL}
 else ifeq ($(TYPE),nginx)
 build:
-	@docker build --target dev --build-arg VERSION=${VERSION_NGINX} -f docker/nginx/Dockerfile -t ${IMG_NGINX} .
+	@docker build --target prod --build-arg VERSION=${VERSION_NGINX} -f docker/nginx/Dockerfile -t ${IMG_NGINX} .
 	@docker tag ${IMG_NGINX} ${LATEST_NGINX}
 else ifeq ($(TYPE),php)
 build:
-	@docker build --target dev --build-arg VERSION=${VERSION_PHP_FPM} -f docker/php-fpm/Dockerfile -t ${IMG_PHP_FPM} .
+	@docker build --target prod --build-arg VERSION=${VERSION_PHP_FPM} -f docker/php-fpm/Dockerfile -t ${IMG_PHP_FPM} .
 	@docker tag ${IMG_PHP_FPM} ${LATEST_PHP_FPM}
 endif
 
@@ -37,7 +37,7 @@ push:
 	@docker push ${NAME_NGINX}
 else ifeq ($(TYPE),php)
 push:
-	@docker push ${NAME_PHP}
+	@docker push ${NAME_PHP_FPM}
 endif
 
 login:
