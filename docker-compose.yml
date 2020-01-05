@@ -14,8 +14,8 @@ services:
       - ./docker/mysql/data:/var/lib/mysql
   nginx:
     build:
-      context: ./docker/nginx
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
       target: dev
       args:
         VERSION: $NGINX_VERSION
@@ -27,8 +27,8 @@ services:
       - ./assets:/app/public
   php-fpm:
     build:
-      context: ./docker/php-fpm
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: ./docker/php-fpm/Dockerfile
       target: dev
       args:
         VERSION: $PHP_VERSION
